@@ -34,7 +34,7 @@ interface Publication {
 export default function Home() {
   const [dots, setDots] = useState<Dot[]>([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
+  const [activeSection, setActiveSection] = useState('about');
 
   useEffect(() => {
     // Generate initial dots
@@ -267,112 +267,97 @@ export default function Home() {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section
-        id="hero"
-        className="min-h-screen w-full flex items-center justify-center relative z-10 px-6"
-      >
-        <div className="max-w-4xl mx-auto text-center animate-slide-down">
-          <h1 className="text-7xl md:text-8xl font-bold mb-6 animate-glow">
-            Hello, I'm Sayan
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-            A passionate developer and creator exploring the intersection of design, technology, 
-            and innovation. Building cool things on the web.
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <button
-              onClick={() => scrollToSection('about')}
-              className="px-8 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-105"
-            >
-              Explore My Work
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition-all duration-300"
-            >
-              Get in Touch
-            </button>
-          </div>
-          <div className="mt-12 flex gap-6 justify-center">
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition"
-            >
-              <Github size={28} />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition"
-            >
-              <Linkedin size={28} />
-            </a>
-            <a
-              href="mailto:your@email.com"
-              className="text-gray-400 hover:text-white transition"
-            >
-              <Mail size={28} />
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* About Section */}
-      <section id="about" className="min-h-screen w-full flex items-center justify-center relative z-10 px-6 bg-gradient-to-b from-black to-gray-900/20">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-bold mb-12 flex items-center gap-3">
-            <User size={40} />
-            About Me
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="text-gray-300 space-y-6">
-              <p className="text-lg leading-relaxed">
-                I'm a developer passionate about creating beautiful, functional digital experiences. 
-                With a background in full-stack development and a keen eye for design, I love building 
-                products that make an impact.
-              </p>
-              <p className="text-lg leading-relaxed">
-                Currently exploring AI/ML applications and their intersection with user experience. 
-                When I'm not coding, you can find me contributing to open-source projects or exploring 
-                new design patterns.
-              </p>
-              <p className="text-lg leading-relaxed">
-                I'm always interested in collaborating on exciting projects and pushing the boundaries 
-                of what's possible on the web.
-              </p>
+      <section id="about" className="min-h-screen w-full flex items-center justify-center relative z-10 px-6 bg-gradient-to-b from-black via-black to-gray-900/10">
+        <div className="max-w-6xl mx-auto pt-20">
+          {/* Main greeting with glow */}
+          <div className="text-center mb-16 md:mb-20">
+            <h1 className="text-6xl md:text-7xl font-bold mb-4 animate-glow inline-block">
+              Hey, I'm Sayan
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto">
+              Developer • Designer • Builder
+            </p>
+          </div>
+
+          {/* Bio section */}
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {/* Main bio - spans 2 columns on desktop */}
+            <div className="md:col-span-2">
+              <div className="space-y-6">
+                <div>
+                  <p className="text-lg text-gray-300 leading-relaxed mb-4">
+                    I'm a full-stack developer passionate about crafting intuitive, elegant solutions to complex problems. 
+                    I believe great software is at the intersection of beautiful design and solid engineering.
+                  </p>
+                  <p className="text-lg text-gray-300 leading-relaxed">
+                    Currently diving deep into AI/ML and exploring how to build human-centered experiences with emerging technologies. 
+                    I enjoy turning ideas into reality, whether that's through code, design, or collaboration.
+                  </p>
+                </div>
+              </div>
+
+              {/* Current focus box */}
+              <div className="mt-8 p-6 bg-gradient-to-br from-white/5 to-white/0 rounded-xl border border-white/10">
+                <p className="text-sm text-gray-400 mb-2 font-semibold uppercase tracking-wide">Currently</p>
+                <p className="text-white text-lg">
+                  Building innovative projects at the intersection of full-stack development and AI. Open to exciting collaborations.
+                </p>
+              </div>
             </div>
 
-            <div className="space-y-8">
+            {/* Interests sidebar */}
+            <div className="space-y-6">
               <div>
-                <h3 className="text-xl font-semibold mb-4 text-white">Skills & Technologies</h3>
+                <h3 className="text-sm font-semibold text-gray-400 mb-3 uppercase tracking-wide">Interests</h3>
                 <div className="flex flex-wrap gap-2">
                   {[
-                    'React', 'Next.js', 'TypeScript', 'Python',
-                    'Tailwind CSS', 'Node.js', 'AI/ML', 'Design'
-                  ].map((skill) => (
+                    'Full-Stack Dev', 'AI/ML', 'UX Design',
+                    'Open Source', 'Web Tech', 'Innovation'
+                  ].map((interest) => (
                     <span
-                      key={skill}
-                      className="px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium hover:bg-white/20 transition"
+                      key={interest}
+                      className="px-3 py-1 bg-white/5 text-white/70 rounded-lg text-sm border border-white/10 hover:bg-white/10 hover:text-white transition"
                     >
-                      {skill}
+                      {interest}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="p-6 bg-white/5 rounded-lg border border-white/10">
-                <p className="text-sm text-gray-400 mb-2">Fun fact</p>
-                <p className="text-white">
-                  I believe in building not just functional, but delightful products that users actually 
-                  enjoy using.
-                </p>
+              <div>
+                <h3 className="text-sm font-semibold text-gray-400 mb-3 uppercase tracking-wide">Tech Stack</h3>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    'React', 'Next.js', 'TypeScript', 'Tailwind',
+                    'Python', 'Node.js'
+                  ].map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 bg-blue-500/10 text-blue-200 rounded-lg text-sm border border-blue-500/20 hover:bg-blue-500/20 transition"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
+          </div>
+
+          {/* CTA section */}
+          <div className="flex flex-wrap gap-4 justify-center">
+            <button
+              onClick={() => scrollToSection('projects')}
+              className="px-8 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-105"
+            >
+              See My Work
+            </button>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition-all duration-300"
+            >
+              Let's Connect
+            </button>
           </div>
         </div>
       </section>
